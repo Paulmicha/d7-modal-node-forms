@@ -1,0 +1,4 @@
+name = Modal node - manual tests
+description = Provides custom page for testing node modals - path : admin/config/development/modal-node/tests
+dependencies[] = modal_cnode
+core = 7.x

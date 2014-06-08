@@ -1,0 +1,73 @@
+
+/**
+ * @file modal-minimal-style.css
+ * Proposition of alternative theming for CTools modals
+ * NB: this is designed to replace CTools' modal.css
+ */
+
+/* Reset some styles from system.css and modal.css */
+
+div.ctools-modal-content--minimal .resizable-textarea {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.ctools-modal-content--minimal .form-item label {
+  float: none;
+  width: auto;
+}
+
+div.ctools-modal-content--minimal .item-list ul li {
+  margin: 0 0 0.25em 1.5em;
+}
+
+div.ctools-modal-content--minimal div.messages {
+  margin: 0;
+}
+
+/* Styles for modal forms modal */
+
+div.ctools-modal-content--minimal {
+  background: transparent;
+  color: #000;
+  font: 12px "Lucida Grande", Verdana, Arial, sans-serif;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+div.ctools-modal-content--minimal .popups-container {
+  overflow: hidden;
+  height: 100%;
+  background: #fff;
+  text-align: left;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+div.ctools-modal-content--minimal .modal-header {
+  background-color: transparent;
+  padding: 0.5em 1em 0 1em;
+  min-height: 25px;
+}
+
+div.ctools-modal-content--minimal .modal-title {
+  display: inline;
+  color: #000;
+}
+
+div.ctools-modal-content--minimal .popups-close {
+  float: right;
+  cursor: pointer;
+  background: url(../images/controls.png) -25px 0px no-repeat;
+  width: 25px;
+  height: 25px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div.ctools-modal-content--minimal .popups-close:hover {
+  background-position: -25px -25px;
+}

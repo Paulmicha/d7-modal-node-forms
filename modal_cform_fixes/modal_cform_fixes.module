@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @file modal_cform_fixes.module
+ * This module attempts to address various problems with modal forms,
+ * such as node form actions (cancel, preview...) and ajax file uploads / removals
+ */
+
+// @todo 2014/06/08 22:51:53
+

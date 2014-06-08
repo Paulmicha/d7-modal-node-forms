@@ -1,0 +1,4 @@
+name = Modal minimal style
+description = Proposition of alternative theming for CTools modals
+dependencies[] = ctools
+core = 7.x

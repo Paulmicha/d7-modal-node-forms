@@ -1,0 +1,4 @@
+name = Modal node
+description = Provides CTools' modal page callbacks corresponding to some core node module pages ('modal-node/add/NODETYPE', 'modal-node/%node', 'modal-node/%node/edit', 'modal-node/%node/delete', 'modal-node/%node/revisions' (planned), 'modal-node/%node/revisions/%/view' (planned), 'modal-node/%node/revisions/%/revert' (planned), 'modal-node/%node/revisions/%/delete' (planned), and an extra callback : 'modal-node/%node/VIEWMODE' (planned))
+dependencies[] = modal_forms
+core = 7.x

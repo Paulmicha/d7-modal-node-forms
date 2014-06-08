@@ -1,0 +1,4 @@
+name = Modal forms fixes
+description = This module attempts to address various problems with modal forms, such as node form actions (cancel, preview...) and ajax file uploads / removals
+dependencies[] = ctools
+core = 7.x

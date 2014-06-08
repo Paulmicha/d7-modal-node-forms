@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file modal_cnode_mtest.module
+ * Provides custom page for testing node modals - path : admin/config/development/modal-node/tests
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function modal_cnode_mtest_menu() {
+  $items = array();
+  $items['admin/config/development/modal-node/tests'] = array(
+    'title' => t('Tests for module "Modal node"'),
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'modal_cnode_mtest_page_callback',
+  );
+  return $items;
+}
+
+
+/**
+ * Tests for module "Modal node" page callback
+ */
+function modal_cnode_mtest_page_callback() {
+  $i = 0;
+  $output = '';
+  
+  // For each content type, list the last 5 nodes with every modal node links
+  // to allow testing them in one place
+  foreach (node_type_get_types() as $type) {
+    if ($i > 0) {
+      $output .= '<hr style="width:66%; margin:1.5em auto 0 auto; border:0 none; border-bottom:1px solid gray;"/>';
+    }
+    $output .= '<h2>' . t($type->name) . '</h2>';
+    $output .= '<div>';
+    $output .= l_modal_cnode(t('Modal node add :') . ' ' . t($type->name), 'modal-node/nojs/add/' . $type->type);
+    $output .= '</div>';
+    
+    $results = db_query(
+      "SELECT n.nid, n.title, n.type, n.created FROM {node} n WHERE n.type = :type ORDER BY n.created DESC LIMIT 0,5",
+      array(':type' => $type->type)
+    );
+    
+    foreach($results as $r) {
+      $output .= '<ul>';
+      $output .= '<li>';
+      $output .= l_modal_cnode(t('Modal node view :') . ' ' . $r->title, 'modal-node/nojs/' . $r->nid);
+      $output .= '</li>';
+      $output .= '<li>';
+      $output .= l_modal_cnode(t('Modal node edit :') . ' ' . $r->title, 'modal-node/nojs/' . $r->nid . '/edit');
+      $output .= '</li>';
+      $output .= '<li>';
+      $output .= l_modal_cnode(t('Modal node delete :') . ' ' . $r->title, 'modal-node/nojs/' . $r->nid . '/delete');
+      $output .= '</li>';
+      $output .= '</ul>';
+    }
+    
+    $i++;
+  }
+  
+  return $output;
+}
+
